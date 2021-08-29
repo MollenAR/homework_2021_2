@@ -40,4 +40,15 @@ QUnit.module('Тестируем функцию sort', function () {
 		assert.strictEqual(sort('i love frontend'), 'Defnnort Elov I');
 		assert.strictEqual(sort('hello world'), 'Dlorw Ehllo');
 	});
+
+	QUnit.test('Функция работает с цифрами', function (assert) {
+		assert.strictEqual(sort('1 2 3 4 5'), '1 2 3 4 5');
+		assert.strictEqual(sort('5 4 3 2 1'), '1 2 3 4 5');
+		assert.strictEqual(sort('111 0000 550'), '0000 055 111');
+	});
+
+	QUnit.test('Функция работает с японским алфавитом', function (assert) {
+		assert.strictEqual(sort('け け か'), 'か け け');
+		assert.strictEqual(sort('ぎり てく'), 'ぎり くて');
+	});
 });

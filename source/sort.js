@@ -6,12 +6,12 @@ let sort = unSortedString => {
     sortedString.forEach( (word, wordPosition) => {
         word = word.toLowerCase();
         let symbolsInWord = word.split('');
-        symbolsInWord.sort( (a, b) => Intl.Collator('ru').compare(a, b) );
+        symbolsInWord.sort( (a, b) => Intl.Collator(['ru', 'jp']).compare(a, b) );
         symbolsInWord[0] = symbolsInWord[0].toUpperCase();
         sortedString[wordPosition] = symbolsInWord.join('');
     });
 
-    sortedString.sort( (a, b) => Intl.Collator('ru').compare(a, b) );
+    sortedString.sort( (a, b) => Intl.Collator(['ru', 'jp']).compare(a, b) );
 
     return sortedString.join(' ')
 }
