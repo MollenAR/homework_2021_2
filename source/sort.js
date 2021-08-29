@@ -1,3 +1,9 @@
+/**
+ * Функция сортировки слов в предложении
+ * @param {string} unSortedString - предложение которое надо отсортировать
+ * @returns {string} - отсортированное предложение
+ */
+
 'use strict';
 
 let sort = unSortedString => {
