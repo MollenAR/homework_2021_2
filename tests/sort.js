@@ -47,8 +47,8 @@ QUnit.module('Тестируем функцию sort', function () {
 		assert.strictEqual(sort('111 0000 550'), '0000 055 111');
 	});
 
-	QUnit.test('Функция работает с японским алфавитом', function (assert) {
-		assert.strictEqual(sort('け け か'), 'か け け');
-		assert.strictEqual(sort('ぎり てく'), 'ぎり くて');
+	QUnit.test('Функция работает с японским алфавитом и эмоджиками', function (assert) {
+		assert.strictEqual(sort('け け か 😀'), '😀 か け け');
+		assert.strictEqual(sort('ぎ😀り てく'), '😀ぎり くて');
 	});
 });

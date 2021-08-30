@@ -10,10 +10,15 @@ let sort = unSortedString => {
     let sortedString = '';
 
     unSortedString.split(' ').forEach(word => {
-        word = word.toLowerCase().split('').sort( (a, b) => new Intl.Collator(['ru', 'jp']).compare(a, b) );
-        word[0] = word[0].toUpperCase();
-        sortedString += word.join('') + ' ';
+        let lowerCaseWord = word.toLowerCase();
+        lowerCaseWord = [...lowerCaseWord].sort( (a, b) => new Intl.Collator(['ru', 'jp']).compare(a, b) );
+        lowerCaseWord[0] = lowerCaseWord[0].toUpperCase();
+        sortedString += lowerCaseWord.join('') + ' ';
     });
 
-    return sortedString.split(' ').sort( (a, b) => new Intl.Collator(['ru', 'jp']).compare(a, b) ).join(' ').trim()
+    return sortedString
+        .split(' ')
+        .sort( (a, b) => new Intl.Collator(['ru', 'jp'],).compare(a, b) )
+        .join(' ')
+        .trim()
 }
