@@ -7,16 +7,16 @@
 'use strict';
 
 let sort = unSortedString => {
-    let sortedString = '';
+    if (unSortedString == undefined) return ''
 
-    unSortedString.split(' ').forEach(word => {
+    let sortedString = unSortedString.split(' ').reduce( (sortedPart, word) => {
         let lowerCaseWord = word.toLowerCase();
         lowerCaseWord = [...lowerCaseWord]
             .sort((a, b) => new Intl.Collator(['ru', 'jp']).compare(a, b))
             .join('')
             .replace(/^./, symbolToCapitalise => symbolToCapitalise.toUpperCase());
-        sortedString += lowerCaseWord + ' ';
-    });
+        return sortedPart + lowerCaseWord + ' '
+    }, '');
 
     return sortedString
         .split(' ')

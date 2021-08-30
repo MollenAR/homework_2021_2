@@ -51,4 +51,10 @@ QUnit.module('Тестируем функцию sort', function () {
 		assert.strictEqual(sort('け け か 😀'), '😀 か け け');
 		assert.strictEqual(sort('ぎ😀り てく'), '😀ぎり くて');
 	});
+
+	QUnit.test('Функция реагирует на undefined, null и пустую строку', function (assert) {
+		assert.strictEqual(sort(undefined), '');
+		assert.strictEqual(sort(''), '');
+		assert.strictEqual(sort(null), '');
+	});
 });
