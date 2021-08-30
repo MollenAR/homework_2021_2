@@ -7,7 +7,6 @@
 'use strict';
 
 let sort = unSortedString => {
-    if (unSortedString == undefined) return ''
 
     let sortedString = unSortedString.split(' ').reduce( (sortedPart, word) => {
         let lowerCaseWord = word.toLowerCase();

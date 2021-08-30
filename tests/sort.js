@@ -53,8 +53,12 @@ QUnit.module('Тестируем функцию sort', function () {
 	});
 
 	QUnit.test('Функция реагирует на undefined, null и пустую строку', function (assert) {
-		assert.strictEqual(sort(undefined), '');
+		assert.throws(function () {
+			sort(undefined);
+		});
+		assert.throws(function () {
+			sort(null);
+		});
 		assert.strictEqual(sort(''), '');
-		assert.strictEqual(sort(null), '');
 	});
 });
