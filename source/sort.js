@@ -11,9 +11,11 @@ let sort = unSortedString => {
 
     unSortedString.split(' ').forEach(word => {
         let lowerCaseWord = word.toLowerCase();
-        lowerCaseWord = [...lowerCaseWord].sort( (a, b) => new Intl.Collator(['ru', 'jp']).compare(a, b) );
-        lowerCaseWord[0] = lowerCaseWord[0].toUpperCase();
-        sortedString += lowerCaseWord.join('') + ' ';
+        lowerCaseWord = [...lowerCaseWord]
+            .sort((a, b) => new Intl.Collator(['ru', 'jp']).compare(a, b))
+            .join('')
+            .replace(/^./, symbolToCapitalise => symbolToCapitalise.toUpperCase());
+        sortedString += lowerCaseWord + ' ';
     });
 
     return sortedString
