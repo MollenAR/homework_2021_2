@@ -7,6 +7,7 @@
 'use strict';
 
 let sort = unSortedString => {
+    if (typeof unSortedString != typeof String()) throw new TypeError('Incorrect type')
 
     let sortedString = unSortedString.split(' ').reduce( (sortedPart, word) => {
         let lowerCaseWord = word.toLowerCase();

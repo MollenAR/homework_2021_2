@@ -52,13 +52,22 @@ QUnit.module('Тестируем функцию sort', function () {
 		assert.strictEqual(sort('ぎ😀り てく'), '😀ぎり くて');
 	});
 
-	QUnit.test('Функция реагирует на undefined, null и пустую строку', function (assert) {
+	QUnit.test('Функция реагирует на не строки', function (assert) {
 		assert.throws(function () {
 			sort(undefined);
-		});
+		}, 'Правильная работа с undefined');
 		assert.throws(function () {
 			sort(null);
-		});
+		}, 'Правильная работа с null');
+		assert.throws(function () {
+			sort([1, 2, 3]);
+		}, 'Правильная работа с массивом чисел');
+		assert.throws(function () {
+			sort({1:'цифра'});
+		}, 'Правильная работа с объектами');
+		assert.throws(function () {
+			sort(function() {});
+		}, 'Правильная работа с функциями');
 		assert.strictEqual(sort(''), '');
 	});
 });
