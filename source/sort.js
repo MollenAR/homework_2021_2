@@ -13,8 +13,8 @@ let sort = unSortedString => {
         let lowerCaseWord = word.toLowerCase();
         lowerCaseWord = [...lowerCaseWord]
             .sort((a, b) => new Intl.Collator(['ru', 'jp']).compare(a, b))
-            .join('')
-            .replace(/^./, symbolToCapitalise => symbolToCapitalise.toUpperCase());
+            .join('');
+        lowerCaseWord = lowerCaseWord.replace(lowerCaseWord[0], symbolToCapitalise => symbolToCapitalise.toUpperCase());
         return sortedPart + lowerCaseWord + ' '
     }, '');
 
