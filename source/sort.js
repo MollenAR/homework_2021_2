@@ -6,15 +6,16 @@
 
 'use strict';
 
-let sort = unSortedString => {
-    if (typeof unSortedString != typeof String()) throw new TypeError('Incorrect type')
+const sort = (unSortedString) => {
+    if (typeof unSortedString != 'string') throw new TypeError('Incorrect type')
 
-    let sortedString = unSortedString.split(' ').reduce( (sortedPart, word) => {
+    const sortedString = unSortedString.split(' ').reduce( (sortedPart, word) => {
         let lowerCaseWord = word.toLowerCase();
         lowerCaseWord = [...lowerCaseWord]
             .sort((a, b) => new Intl.Collator(['ru', 'jp']).compare(a, b))
             .join('');
-        lowerCaseWord = lowerCaseWord.replace(lowerCaseWord[0], symbolToCapitalise => symbolToCapitalise.toUpperCase());
+        lowerCaseWord = lowerCaseWord.replace(lowerCaseWord[0],
+            (symbolToCapitalise) => symbolToCapitalise.toUpperCase());
         return sortedPart + lowerCaseWord + ' '
     }, '');
 
